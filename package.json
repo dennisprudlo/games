@@ -2,16 +2,27 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "build": "vite build",
-        "dev": "vite"
+        "predev": "php artisan lang:js public/build/lang.js -s lang",
+        "dev": "php artisan ziggy:generate --types && npm run predev && vite",
+        "build": "php artisan ziggy:generate --types && vite build && npm run postbuild",
+        "postbuild": "php artisan lang:js public/build/lang.js -s lang"
     },
     "devDependencies": {
+        "@inertiajs/vue3": "^1.2.0",
+        "@types/node": "^22.9.0",
+        "@vitejs/plugin-vue": "^5.1.4",
+        "@vue/compiler-sfc": "^3.5.12",
         "autoprefixer": "^10.4.20",
         "axios": "^1.7.4",
         "concurrently": "^9.0.1",
-        "laravel-vite-plugin": "^1.0",
+        "laravel-vite-plugin": "^1.0.5",
+        "mini-svg-data-uri": "^1.4.4",
+        "pinia": "^2.2.6",
         "postcss": "^8.4.47",
         "tailwindcss": "^3.4.13",
-        "vite": "^5.0"
+        "tippy.js": "^6.3.7",
+        "typescript": "^5.6.3",
+        "vite": "^5.0",
+        "vue": "^3.5.12"
     }
 }

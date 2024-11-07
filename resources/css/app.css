@@ -1,3 +1,29 @@
+@import 'fonts/dm-sans.css';
+@import 'fonts/dm-mono.css';
+@import 'fonts/font-awesome.css';
+@import 'tippy.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html { @apply scroll-smooth }
+    html * { @apply m-0 p-0 appearance-none }
+    body { @apply bg-gray-900 text-gray-50 }
+    h1, h2, h3, h4, h5, h6 { @apply text-gray-50 font-sans font-medium }
+    strong { @apply font-semibold }
+    input[type="date"], input[type="datetime-local"], input[type="time"] { @apply h-9 }
+    input::-webkit-datetime-edit { @apply p-0 }
+    code { @apply text-sm bg-gray-100 px-1 py-0.5 rounded-md font-medium }
+}
+
+#nprogress .bar {
+    height: 3px !important;
+}
+
+@layer components {
+    .link {
+        @apply text-primary cursor-pointer hover:underline focus:underline underline-offset-2;
+    }
+}
