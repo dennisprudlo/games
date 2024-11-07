@@ -24,6 +24,14 @@ export const formatEntityId = (id: string) => {
 }
 
 /**
+ * Creates an empty range of numbers.
+ * @param start The start of the range
+ * @param end The end of the range
+ * @returns An array of numbers from start to end
+ */
+export const range = (start: number, end: number) => Array.from({ length: end - start + 1 }, (_, i) => start + i);
+
+/**
  * Generates a random UUID.
  * @returns A random UUID
  */

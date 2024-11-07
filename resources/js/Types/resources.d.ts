@@ -51,4 +51,7 @@ export type GameResource = {
     requires_authentication: boolean,
     starred: boolean,
     trivia: Array<string>,
+    meta: {
+        request_session_url: string,
+    },
 }

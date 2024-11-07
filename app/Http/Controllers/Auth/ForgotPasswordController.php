@@ -8,7 +8,6 @@ use App\Models\UserPasswordReset;
 use App\Notification;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Mail;
 use Inertia\Inertia;
 use Inertia\Response;
 

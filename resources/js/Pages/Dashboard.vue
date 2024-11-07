@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { PropType} from 'vue';
-import { route} from 'ziggy';
+import { route } from 'ziggy';
 import { Link } from '@inertiajs/vue3';
 import { GameResource } from '@/Types/resources';
-import { Content, GamePanel, Section} from '@/Components';
+import { Content, GamePanel, Section } from '@/Components';
 
 defineProps({
     games: {

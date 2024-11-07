@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { computed, PropType } from 'vue';
 import { route } from 'ziggy';
-import { Link, usePage } from '@inertiajs/vue3';
+import { Link, useForm, usePage } from '@inertiajs/vue3';
 import { GameResource } from '@/Types/resources';
 import { baseUrl } from '@/Lib/Helper';
 import { Button, Content, Section, SectionTitle, Tooltip } from '@/Components';
 
-defineProps({
+const props = defineProps({
     game: {
         type: Object as PropType<GameResource>,
         required: true,
@@ -14,6 +14,13 @@ defineProps({
 });
 
 const user = computed(() => usePage().props.auth);
+
+/**
+ * Start the game session.
+ */
+const startGameSession = () => {
+    useForm({}).post(props.game.meta.request_session_url);
+}
 </script>
 
 <template>
@@ -56,7 +63,7 @@ const user = computed(() => usePage().props.auth);
                     </div>
                     <div>
                         <Button v-if="game.requires_authentication && user === null">Sign up to play</Button>
-                        <button v-else class="bg-primary size-16 rounded-full transition-transform duration-500 hover:scale-125 shadow-lg shadow-primary/30">
+                        <button v-else class="bg-primary size-16 rounded-full transition-transform duration-500 hover:scale-125 shadow-lg shadow-primary/30" @click="startGameSession()">
                             <i class="fa-solid fa-play text-3xl ml-1"></i>
                         </button>
                     </div>
@@ -67,7 +74,7 @@ const user = computed(() => usePage().props.auth);
         <Section v-if="game.trivia.length" title="Trivia" class="divide-y divide-gray-700">
             <div v-for="trivia in game.trivia" class="py-5 first:pt-0 last:pb-0 font-serif italic text-xl opacity-70 relative">
                 <span class="text-5xl absolute opacity-50 -left-2">“&nbsp;</span>
-                <span class="ml-5">{{ trivia }}</span>
+                <span class="ml-6">{{ trivia }}</span>
                 <span class="text-5xl absolute opacity-50">”&nbsp;</span>
             </div>
         </Section>

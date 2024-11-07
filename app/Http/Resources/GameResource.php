@@ -31,6 +31,7 @@ class GameResource extends JsonResource
             'requires_authentication' => $this->requiresAuthentication(),
             'starred' => false,
             'trivia' => $this->trivia(),
+            'meta' => $this->meta(),
         ];
     }
 }

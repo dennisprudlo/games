@@ -1,5 +1,6 @@
 <?php
 
+use App\Games\Wordle\Controller as WordleController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\SessionController;
@@ -45,6 +46,16 @@ Route::prefix(LaravelLocalization::setLocale())->middleware([LocalizationRedirec
     Route::controller(ProductController::class)->group(function () {
         Route::get('/', 'dashboard')->name('dashboard');
         Route::get('/{game}', 'game')->name('game');
+    });
+
+    Route::prefix('sessions')->group(function () {
+        Route::prefix('wordle')->controller(WordleController::class)->group(function () {
+            Route::post('/', 'store')->name('sessions.wordle.store');
+            Route::prefix('{wordle}')->group(function () {
+                Route::get('/', 'show')->name('sessions.wordle.show');
+                Route::patch('/', 'update')->name('sessions.wordle.update');
+            });
+        });
     });
 
     /*

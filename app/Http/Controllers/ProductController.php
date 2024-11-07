@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Enums\Game;
 use App\Http\Resources\GameResource;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use Inertia\Inertia;
 use Inertia\Response;
 

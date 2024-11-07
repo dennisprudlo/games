@@ -18,8 +18,7 @@ return [
         'short-description' => 'Simple yet strategic, jump and capture to victory.',
         'description' => 'A classic game of strategy and skill, Checkers challenges players to outmaneuver their opponents by jumping over their pieces to capture them. The game is simple to learn but requires deep tactical thinking as you plan your moves to gain an advantage. Play for the thrill of victory as you advance your pieces and aim to capture your opponent\'s entire army.',
         'trivia' => [
-            'ad',
-            'asd',
+
         ],
     ],
     'chess' => [
@@ -57,7 +56,13 @@ return [
         'short-description' => 'Guess the hidden word in six tries or less.',
         'description' => 'Wordle is a captivating word puzzle game where players have six chances to guess a five-letter word. With each guess, the game provides feedback on which letters are correct and in the right position, helping you narrow down the possibilities. It\'s a fun challenge for word enthusiasts who love testing their vocabulary and problem-solving skills under pressure.',
         'trivia' => [
-
+            'Wordle was created by software engineer Josh Wardle as a gift for his partner.',
+            'The game\'s simple design and daily challenge contributed to its viral popularity in 2021.',
+            'Wordle was acquired by The New York Times in early 2022.',
+            'Only one Wordle puzzle is released per day, creating a shared experience among players worldwide.',
+            'Josh Wardle chose five-letter words because he felt they provided just the right level of difficulty.',
+            'There are over 2,300 possible five-letter words in the official Wordle word list.',
+            'Wordle has inspired numerous spin-offs, including Heardle, Quordle, and Nerdle.',
         ],
     ],
 ];

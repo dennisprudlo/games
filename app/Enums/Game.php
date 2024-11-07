@@ -99,4 +99,31 @@ enum Game: string
 
         return $trivia;
     }
+
+    /**
+     * Gets the meta information for the game.
+     */
+    public function meta(): array
+    {
+        return [
+            'request_session_url' => match ($this) {
+                self::wordle => route('sessions.wordle.store'),
+                default => null,
+            },
+        ];
+    }
+
+    /**
+     * Gets the base model class for the game.
+     */
+    public function modelClass(): string
+    {
+        return match ($this) {
+            self::checkers => \App\Models\Games\Wordle::class,
+            self::chess => \App\Models\Games\Wordle::class,
+            self::go => \App\Models\Games\Wordle::class,
+            self::texasHoldem => \App\Models\Games\Wordle::class,
+            self::wordle => \App\Models\Games\Wordle::class,
+        };
+    }
 }
